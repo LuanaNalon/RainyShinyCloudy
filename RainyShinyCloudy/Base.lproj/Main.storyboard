@@ -77,7 +77,7 @@
                                 <rect key="frame" x="0.0" y="300" width="414" height="596"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="80" id="dwK-kZ-jTN">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="weatherCell" rowHeight="80" id="dwK-kZ-jTN">
                                         <rect key="frame" x="0.0" y="24.5" width="414" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dwK-kZ-jTN" id="HRZ-gf-EGc">
@@ -143,6 +143,7 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="5xA-ky-PkT" secondAttribute="bottom" constant="5" id="qC0-qc-o6b"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -165,6 +166,7 @@
                         <outlet property="currentWeatherTypeLbl" destination="0oH-HK-rO4" id="DaD-gh-E5C"/>
                         <outlet property="dateLbl" destination="NsI-hA-UJC" id="sRU-Nx-3Xd"/>
                         <outlet property="locationLbl" destination="Kin-EJ-TvF" id="DrF-WH-Ksi"/>
+                        <outlet property="tableView" destination="NgI-0S-X7n" id="OLg-rI-piH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
