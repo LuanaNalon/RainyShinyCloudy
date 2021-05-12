@@ -67,9 +67,7 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>API_KEY</key>
-	<string>657061082f9e08c718e57b593923a4a0
-
-</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We need your location to give you relevant, up-to-date weather information</string>
 </dict>
 </plist>

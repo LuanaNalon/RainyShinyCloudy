@@ -30,7 +30,7 @@ class CurrentWeather {
         dateFormatter.dateStyle = .long
         dateFormatter.timeStyle = .none
         let currrentDate = dateFormatter.string(from: Date())
-        self._date = "Today \(currrentDate)"
+        self._date = "Today, \(currrentDate)"
         return _date
     }
     var weatherType: String {
@@ -45,12 +45,13 @@ class CurrentWeather {
         }
         return _currentTemp
     }
-    func downloadWeatherDetails(completed: DownloadComplete) {
-//        Alamofire download
-        let currentWeatherURL = URL(string: CURRENT_WEATHER_URL)!
-        AF.request(currentWeatherURL).responseJSON { response in
+    
+    func downloadWeatherDetails(completed: @escaping DownloadComplete) {
+        //       Download Current Weather Data
+        AF.request(CURRENT_WEATHER_URL).responseJSON { response in
             switch response.result {
             case let .success(value):
+                
                 if let dict = value as? Dictionary<String, AnyObject> {
                     
                     if let name = dict["name"] as? String {
@@ -65,17 +66,19 @@ class CurrentWeather {
                         }
                     }
                     if let main = dict["main"] as? Dictionary<String, AnyObject> {
+                        
                         if let currentTemperature = main["temp"] as? Double {
                             let kelvinToCelsius = Double(round(currentTemperature - 273.15))
                             self._currentTemp = kelvinToCelsius
                             print(self._currentTemp)
                         }
                     }
-                }            case let .failure(error):
+                }
+                completed()
+            case let .failure(error):
                 print(error)
             }
-
+            
         }
-        completed()
     }
 }
